@@ -1,0 +1,17 @@
+{
+    "SIGNUP": "SignUp",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRM-PASSWORD": "Confirm Password",
+    "MOBILE": "Mobile",
+    "GENDER": "Gender",
+    "MALE": "Male",
+    "FEMALE": "Female",
+    "TRANS": "Trans",
+    "DOB": "Date Of Birth",
+    "ADDRESS": "Address",
+    "HOBBIES": "Hobbies",
+    "ANNUAL-INCOME": "Annual Income",
+    "TNC": "I agree to the terms and conditions"
+
+}

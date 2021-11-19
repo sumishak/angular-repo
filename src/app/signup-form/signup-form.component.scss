@@ -1,0 +1,116 @@
+.main-container {
+    background-color: #000;
+    height: 700px;
+    margin: 0px !important;
+}
+
+.signup-container {
+    display: flex;
+    background-image: url("../../assets/images/black-back.jpg");
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+}
+
+.hide {
+    display: none;
+  }
+  .inner-addon { 
+      position: relative; 
+  }
+  .inner-addon .far, .inner-addon .fas {
+    position: absolute;
+    padding: 10px 30px;
+    z-index: 100;
+    cursor: pointer;
+  }
+  .left-addon .far, .left-addon .fas  { left:  0px; }
+  .right-addon .far, .right-addon .fas { right: 0px; }
+  
+  .left-addon input  { padding-left:  30px; }
+  .right-addon input { padding-right: 30px; }
+
+
+  .avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 10px auto 30px;
+  }
+  
+  .avatar-upload .avatar-edit {
+    position: absolute;
+    right: 19px;
+    z-index: 1;
+    top: 150px;
+    left: 140px;
+    opacity: .5;
+  }
+  
+  .avatar-upload .avatar-edit input {
+    display: none;
+  }
+  
+  .avatar-upload .avatar-edit .upload-image {
+    background: #3efc78;
+  }
+  
+  .avatar-upload .avatar-edit .remove-image {
+    background: #E91E63;
+  }
+  
+  .avatar-upload .avatar-edit .custom-label:hover {
+    opacity: 1;
+  }
+  
+  .avatar-upload .avatar-edit .custom-label:after {
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    top: 8px;
+    right: 0;
+    left: 2px;
+    width: 18px;
+  }
+  
+  .avatar-upload .avatar-preview {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 12px solid #fff;
+    -webkit-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 45px rgba(0, 0, 0, .2);
+  }
+  
+  .avatar-upload .avatar-preview>div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .centered {
+    position: absolute;
+    top: 105px;
+    left: 85px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px !important;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey !important; 
+    border-radius: 10px !important;
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: black !important; 
+    border-radius: 10px !important;
+  }

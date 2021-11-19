@@ -1,0 +1,153 @@
+<div class='col-md-6 offset-md-3 mt-5'>
+    <div style="display: flex; height: 550px;">
+        <mat-card style="display: flex;" class="signup-container">
+            <div style=" min-width: 38%;" >
+                <img src="../../assets/images/d-logo.png">
+                <span class="centered" style="color: aliceblue;">Digital Chameleon</span>
+            </div>
+                <div class="card" style="overflow-y: auto; overflow-x: hidden; min-width: 62%;">
+                    <h4 class="card-header">{{'SIGNUP' | translate}}</h4>
+                    <div class="card-body">
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                                <div class="avatar-upload">
+                                <div class="avatar-edit">
+                                    <div class="profile-img-i-container" (click)=" profilephoto.click()">
+                                        <mat-icon>photo_camera</mat-icon>
+                                        </div>
+                                    <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (click)="profilephoto.click()" />
+                                </div>
+                                <div class="avatar-preview">
+                                    <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="image-upload" style="display: none;">
+                                <input id="file-input" #profilephoto type="file" accept="image/*" (change)="onReadFile($event, 'photo')" />
+                                </div>
+                            <div class="form-group">
+                                <label for="email">{{'EMAIL' | translate}}</label>
+                                <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                <ng-container *ngFor="let error of error_messages.email">
+                                    <div class="invalid-feedback" *ngIf="form.get('email').hasError(error.type)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div class="form-group ">
+                                <label for="password">{{'PASSWORD' | translate}}</label>
+                                <div style="display: flex;" class="inner-addon right-addon flex-wrap">
+                                    <input [type]="showPassword ? 'text' : 'password'" formControlName="password" 
+                                    class="form-control pwd-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                    <div>
+                                        <i alt="show" class="far fa-eye eye-show" 
+                                        (click)="showPassword = !showPassword"
+                                        [class.hide]="!showPassword"></i>
+                                        <i alt="hide" class="far fa-eye-slash eye-hide" 
+                                        (click)="showPassword = !showPassword"
+                                        [class.hide]="showPassword"></i>
+                                    </div>
+                                    <ng-container *ngFor="let error of error_messages.password">
+                                        <div class="invalid-feedback w-100" *ngIf="form.get('password').hasError(error.type)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cpassword">{{'CONFIRM-PASSWORD' | translate}}</label>
+                                <div style="display: flex;" class="inner-addon right-addon flex-wrap">
+                                    <input [type]="showConfirmPassword ? 'text' : 'password'" formControlName="cpassword" 
+                                    class="form-control pwd-control" [ngClass]="{ 'is-invalid': submitted && f.cpassword.errors }" />
+                                    <div>
+                                        <i alt="show" class="far fa-eye eye-show" 
+                                        (click)="showConfirmPassword = !showConfirmPassword"
+                                        [class.hide]="!showConfirmPassword"></i>
+                                        <i alt="hide" class="far fa-eye-slash eye-hide" 
+                                        (click)="showConfirmPassword = !showConfirmPassword"
+                                        [class.hide]="showConfirmPassword"></i>
+                                    </div>
+                                    <ng-container *ngFor="let error of error_messages.confirmpassword">
+                                        <div class="invalid-feedback w-100" *ngIf="form.get('cpassword').hasError(error.type)">
+                                            {{ error.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">{{'MOBILE' | translate}}</label>
+                                <ngx-intl-tel-input [cssClass]="'custom'" [enableAutoCountrySelect]="true" [enablePlaceholder]="true"
+                                [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                                [selectFirstCountry]="false"  
+                                [phoneValidation]="true" [separateDialCode]="true" name="phone" formControlName="phone">
+                                </ngx-intl-tel-input>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">{{'GENDER' | translate}}</label><br>
+                                <input id="male" type="radio" value="male" name="gender" formControlName="gender" class='offset-md-1' [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                                <label for="male">{{'MALE' | translate}}</label>
+                                <input id="female" type="radio" value="female" name="gender" formControlName="gender" class='offset-md-1'>
+                                <label for="female">{{'FEMALE' | translate}}</label>
+                                <input id="trans" type="radio" value="trans" name="gender" formControlName="gender" class='offset-md-1'>
+                                <label for="female">{{'TRANS' | translate}}</label>
+                                <ng-container *ngFor="let error of error_messages.gender">
+                                    <div class="invalid-feedback" *ngIf="form.get('gender').hasError(error.type)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">{{'DOB' | translate}}</label>
+                                <input type="date" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                                <ng-container *ngFor="let error of error_messages.dob">
+                                    <div class="invalid-feedback" *ngIf="form.get('dob').hasError(error.type)">
+                                        {{ error.message }}
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">{{'ADDRESS' | translate}}</label>
+                                <textarea type="text" formControlName="address" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="hobbies">{{'HOBBIES' | translate}}</label>
+                                <input type="text" formControlName="hobbies" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label for="income">{{'ANNUAL-INCOME' | translate}}</label>
+                                <div class=" input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <select formControlName="selectedCurrency" name="first" (change)="convertWithCurrencyRate()">
+                                            <option *ngFor="let o of options">
+                                              {{o.name}}
+                                            </option>
+                                          </select>
+                                      </div>
+                                      <input type="text" formControlName="income" class="form-control" />
+                                </div>
+                                
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    {{'TNC' | translate}}
+                                </label>
+                                </div>
+                            <div class="form-group mt-4">
+                                <button [disabled]="loading" class="btn btn-primary">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Submit
+                                </button>
+                                    <select class="offset-md-5" #langSelect (change)="translate.use(langSelect.value)">
+                                        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+                                        </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+        </mat-card>
+    </div>
+
+</div>
+
